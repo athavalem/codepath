@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    >
+
+    <TextView
+        android:id="@+id/lblTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:text="Title : "
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="5dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"/>
+
+
+    <TextView
+        android:id="@+id/txtTaskTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@id/lblTitle"
+        android:layout_alignBaseline="@id/lblTitle"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="5dp"
+        android:textStyle="bold"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        />
+
+    <TextView
+        android:id="@+id/lblStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/lblTitle"
+        android:text="Complete? "
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="5dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"/>
+
+    <CheckBox
+        android:id="@+id/chkStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/lblTitle"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_toRightOf="@id/lblStatus"/>
+
+    <TextView
+        android:id="@+id/lblPriority"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_below="@id/lblTitle"
+        android:layout_toRightOf="@id/chkStatus"
+        android:text="High Priority? "
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="5dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+       />
+
+    <CheckBox
+        android:id="@+id/chkPriority"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/lblTitle"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_toRightOf="@id/lblPriority"/>
+
+    <TextView
+        android:id="@+id/lblDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/date"
+        android:layout_below="@id/lblStatus"
+        android:layout_alignParentLeft="true"
+        android:layout_toRightOf="@id/chkPriority"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="5dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"/>
+
+    <TextView
+        android:id="@+id/txtDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/lblDate"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_toRightOf="@id/lblDate"
+        android:textStyle="bold"
+        android:textAppearance="?android:attr/textAppearanceMedium">
+    </TextView>
+
+
+</RelativeLayout>
+
