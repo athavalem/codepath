@@ -1,24 +1,24 @@
 <resources>
-    <string name="app_name">SimpleToDo</string>
-    <string name="title_activity_edit_item">Edit Item</string>
-    <string name="priority">Priority:</string>
-    <string name="date">Due Date:</string>
+    <string name="app_name" translatable="false">SimpleToDo</string>
+    <string name="title_activity_edit_item" translatable="false">Edit Item</string>
+    <string name="priority" translatable="false">Priority:</string>
+    <string name="date" translatable="false">Due Date:</string>
 
-    <string name="title">Enter/Update Task Details</string>
-    <string name="task">Task :</string>
+    <string name="title" translatable="false">Enter/Update Task Details</string>
+    <string name="task" translatable="false">Task :</string>
 
-    <string name="hintTask">Task</string>
-    <string name="status">Status</string>
+    <string name="hintTask" translatable="false">Task</string>
+    <string name="status" translatable="false">Status</string>
 
-    <string name="priority_low">LOW</string>
+    <string name="priority_low" translatable="false">LOW</string>
 
-    <string name="priority_high">HIGH</string>
+    <string name="priority_high" translatable="false">HIGH</string>
 
-    <string name="cancel">Cancel</string>
-    <string name="reset">Reset</string>
-    <string name="submit">Save</string>
-    <string name="dateButton">Pick Date</string>
-    <string name="complete">Complete?  </string>
-    <string name="save">Save</string>
+    <string name="cancel" translatable="false">Cancel</string>
+    <string name="reset" translatable="false">Reset</string>
+    <string name="submit" translatable="false">Save</string>
+    <string name="dateButton" translatable="false">Pick Date</string>
+    <string name="complete" translatable="false">Complete?  </string>
+    <string name="save" translatable="false">Save</string>
 
 </resources>
