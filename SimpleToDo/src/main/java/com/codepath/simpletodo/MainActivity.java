@@ -4,6 +4,8 @@ import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -38,7 +40,7 @@ public class MainActivity extends AppCompatActivity implements  SimpleTaskAdapte
 
     }
 
-    public void onAddItem(View v){
+    public void addItem(){
 
         TaskBeingEdited taskBeingEdited = new TaskBeingEdited();
         taskBeingEdited.setPosition(-1);
@@ -54,7 +56,7 @@ public class MainActivity extends AppCompatActivity implements  SimpleTaskAdapte
 
 
     private void setupListViewListener(){
-        Log.i("AAAA", "here");
+
         lvItems.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
@@ -67,7 +69,7 @@ public class MainActivity extends AppCompatActivity implements  SimpleTaskAdapte
         lvItems.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Log.i("AAAA", "here2");
+
 
                 Toast.makeText(getApplicationContext(),"Clicked",Toast.LENGTH_LONG).show();
                 TaskBeingEdited taskBeingEdited = new TaskBeingEdited();
@@ -102,8 +104,14 @@ public class MainActivity extends AppCompatActivity implements  SimpleTaskAdapte
         if (taskBeingEdited.isEditCancelled()){
             return;
         }
-        String editedItem = simpleTask.getTitle();
+
         int position = taskBeingEdited.getPosition();
+
+        if (taskBeingEdited.isTaskDeleted()){
+            taskAdapter.removeTask(position);
+            return;
+        }
+
         if (position == -1){
             taskAdapter.addTask(simpleTask);
 
@@ -114,8 +122,6 @@ public class MainActivity extends AppCompatActivity implements  SimpleTaskAdapte
 
 
     }
-
-
 
 
     @Override
@@ -135,4 +141,27 @@ public class MainActivity extends AppCompatActivity implements  SimpleTaskAdapte
         TaskEditorFragment editDialogFragment = TaskEditorFragment.newInstance(MainActivity.this, taskBeingEdited);
         editDialogFragment.show(fragmentManager,"TAG");
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_add) {
+            addItem();
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
 }

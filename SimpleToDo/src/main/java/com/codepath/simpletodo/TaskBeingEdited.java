@@ -14,6 +14,8 @@ public class TaskBeingEdited implements Serializable{
 
     private  boolean isEditCancelled;
 
+    private  boolean isTaskDeleted;
+
     public SimpleTask getSimpleTask() {
         return simpleTask;
     }
@@ -36,5 +38,13 @@ public class TaskBeingEdited implements Serializable{
 
     public void setEditCancelled(boolean editCancelled) {
         isEditCancelled = editCancelled;
+    }
+
+    public boolean isTaskDeleted() {
+        return isTaskDeleted;
+    }
+
+    public void setTaskDeleted(boolean taskDeleted) {
+        isTaskDeleted = taskDeleted;
     }
 }

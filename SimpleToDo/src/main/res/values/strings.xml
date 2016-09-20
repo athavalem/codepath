@@ -20,5 +20,6 @@
     <string name="dateButton" translatable="false">Pick Date</string>
     <string name="complete" translatable="false">Complete?  </string>
     <string name="save" translatable="false">Save</string>
+    <string name="delete">Delete</string>
 
 </resources>

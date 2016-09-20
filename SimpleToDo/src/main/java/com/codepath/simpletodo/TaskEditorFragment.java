@@ -38,6 +38,7 @@ public class TaskEditorFragment extends DialogFragment {
     EditText editTask;
     Button saveButton;
     Button cancelButton;
+    Button deleteButton;
     Button dateButton;
 
     public static String TASK = "TASK";
@@ -111,6 +112,7 @@ public class TaskEditorFragment extends DialogFragment {
         editTask = (EditText) view.findViewById(R.id.editTitle);
         saveButton = (Button) view.findViewById(R.id.saveButton);
         cancelButton = (Button) view.findViewById(R.id.cancelButton);
+        deleteButton = (Button) view.findViewById(R.id.deleteButton);
         dateButton = (Button) view.findViewById(R.id.dateButton);
         final CheckBox chkStatus = (CheckBox) view.findViewById(R.id.chkStatus);
         chkStatus.setChecked(taskBeingEdited.getSimpleTask().isStatusComplete() ? true : false);
@@ -129,13 +131,13 @@ public class TaskEditorFragment extends DialogFragment {
         txtDate.setText(SimpleTask.FORMAT.format(taskDate));
         String title = taskBeingEdited.getSimpleTask().getTitle();
         editTask.setText(title);
-        final Date dateforPicker = taskDate;
+        final Date dateForPicker = taskDate;
         dateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                  Calendar calendar = new GregorianCalendar();
-                calendar.setTime(dateforPicker);
+                calendar.setTime(dateForPicker);
                  DatePickerDialog datePickerDialog = new DatePickerDialog(getContext(), new DatePickerDialog.OnDateSetListener() {
 
                     public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
@@ -157,6 +159,7 @@ public class TaskEditorFragment extends DialogFragment {
             public void onClick(View v) {
 
                 taskBeingEdited.setEditCancelled(false);
+                taskBeingEdited.setTaskDeleted(false);
                 String editedItem = editTask.getText().toString();
                 taskBeingEdited.getSimpleTask().setStatus(chkStatus.isChecked() == true ? 1 : 0);
                 taskBeingEdited.getSimpleTask().setTitle(editedItem);
@@ -181,6 +184,17 @@ public class TaskEditorFragment extends DialogFragment {
             @Override
             public void onClick(View v) {
                 taskBeingEdited.setEditCancelled(true);
+                taskBeingEdited.setTaskDeleted(false);
+                finishListener.onComplete(taskBeingEdited);
+                dismiss();
+            }
+        });
+
+        deleteButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                taskBeingEdited.setTaskDeleted(true);
+                taskBeingEdited.setEditCancelled(false);
                 finishListener.onComplete(taskBeingEdited);
                 dismiss();
             }
