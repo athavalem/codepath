@@ -82,17 +82,6 @@ public class SimpleTaskAdapter extends BaseAdapter {
 
     }
 
-    // Clears the list adapter of all items.
-
-    public void clear() {
-
-        tasks.clear();
-
-        notifyDataSetChanged();
-
-    }
-
-    // Returns the number of SimpleTasks
 
     @Override
     public int getCount() {
@@ -101,7 +90,6 @@ public class SimpleTaskAdapter extends BaseAdapter {
 
     }
 
-    // Retrieve the number of SimpleTasks
 
     @Override
     public Object getItem(int pos) {
@@ -110,8 +98,6 @@ public class SimpleTaskAdapter extends BaseAdapter {
 
     }
 
-    // Get the ID for the SimpleTask
-    // In this case it's just the position
 
     @Override
     public long getItemId(int pos) {

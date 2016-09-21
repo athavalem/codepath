@@ -54,49 +54,6 @@ public class MainActivity extends AppCompatActivity implements  SimpleTaskAdapte
     }
 
 
-
-    private void setupListViewListener(){
-
-        lvItems.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-            @Override
-            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-
-              taskAdapter.removeTask(position);
-                return true;
-            }
-        });
-
-        lvItems.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-
-                Toast.makeText(getApplicationContext(),"Clicked",Toast.LENGTH_LONG).show();
-                TaskBeingEdited taskBeingEdited = new TaskBeingEdited();
-                taskBeingEdited.setPosition(position);
-
-                taskBeingEdited.setSimpleTask((SimpleTask)taskAdapter.getItem(position));
-
-                FragmentManager fragmentManager = getSupportFragmentManager();
-                TaskEditorFragment editDialogFragment = TaskEditorFragment.newInstance(MainActivity.this, taskBeingEdited);
-                editDialogFragment.show(fragmentManager,"TAG");
-            }
-        });
-    }
-
-
-//    @Override
-//    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-//
-//         if (resultCode == RESULT_OK && requestCode == REQUEST_CODE){
-//
-//             String editedItem = data.getExtras().getString(MainActivity.ITEM);
-//             int position = data.getExtras().getInt(MainActivity.POSITION);
-//             taskAdapter.updateTask(position,editedItem);
-//
-//         }
-//      }
-
     @Override
     public void onComplete(TaskBeingEdited taskBeingEdited) {
 

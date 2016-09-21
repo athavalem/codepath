@@ -1,18 +1,15 @@
 package com.codepath.simpletodo;
 
 import android.app.DatePickerDialog;
-import android.graphics.Point;
+
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
 import android.util.Log;
-import android.view.Display;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.DatePicker;
@@ -31,6 +28,7 @@ import java.util.GregorianCalendar;
  */
 public class TaskEditorFragment extends DialogFragment {
 
+    //For communication with Main Activity
     public  interface OnFinishListener {
           void onComplete(TaskBeingEdited taskBeingEdited);
     }
@@ -67,9 +65,6 @@ public class TaskEditorFragment extends DialogFragment {
     @Override
     public void onResume() {
         super.onResume();
-//        int width = getResources().getDimensionPixelSize(R.dimen.popup_width);
-//        int height = getResources().getDimensionPixelSize(R.dimen.popup_height);
-
 
         int width = getResources().getDisplayMetrics().widthPixels;
 
@@ -79,16 +74,6 @@ public class TaskEditorFragment extends DialogFragment {
         height = (int) ((double) height * 0.55);
         getDialog().getWindow().setLayout(width, height);
 
-
-//        Window window = getDialog().getWindow();
-//        Point size = new Point();
-//        // Store dimensions of the screen in `size`
-//        Display display = window.getWindowManager().getDefaultDisplay();
-//        display.getSize(size);
-//        // Set the width of the dialog proportional to 75% of the screen width
-//        window.setLayout((int) (size.x * 0.75), WindowManager.LayoutParams.WRAP_CONTENT);
-//        window.setGravity(Gravity.CENTER);
-//        // Call super onResume after sizing
         super.onResume();
 
 
@@ -109,13 +94,16 @@ public class TaskEditorFragment extends DialogFragment {
     @Override
     public void onViewCreated(final View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
         editTask = (EditText) view.findViewById(R.id.editTitle);
-        saveButton = (Button) view.findViewById(R.id.saveButton);
-        cancelButton = (Button) view.findViewById(R.id.cancelButton);
-        deleteButton = (Button) view.findViewById(R.id.deleteButton);
-        dateButton = (Button) view.findViewById(R.id.dateButton);
+
+        String title = taskBeingEdited.getSimpleTask().getTitle();
+        editTask.setText(title);
+
+
         final CheckBox chkStatus = (CheckBox) view.findViewById(R.id.chkStatus);
         chkStatus.setChecked(taskBeingEdited.getSimpleTask().isStatusComplete() ? true : false);
+
         final RadioGroup radioGroupPriority = (RadioGroup) view.findViewById(R.id.priorityGroup);
         RadioButton priorityHigh = (RadioButton) view.findViewById(R.id.highPriority);
         RadioButton priorityLow = (RadioButton) view.findViewById(R.id.lowPriority);
@@ -127,11 +115,13 @@ public class TaskEditorFragment extends DialogFragment {
             taskDate = Calendar.getInstance().getTime();
             taskBeingEdited.getSimpleTask().setDate(taskDate);
         }
+
         final TextView txtDate = (TextView)view.findViewById(R.id.txtDate);
         txtDate.setText(SimpleTask.FORMAT.format(taskDate));
-        String title = taskBeingEdited.getSimpleTask().getTitle();
-        editTask.setText(title);
+
         final Date dateForPicker = taskDate;
+
+        dateButton = (Button) view.findViewById(R.id.dateButton);
         dateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -154,6 +144,9 @@ public class TaskEditorFragment extends DialogFragment {
 
             }
         });
+
+        saveButton = (Button) view.findViewById(R.id.saveButton);
+
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -168,8 +161,8 @@ public class TaskEditorFragment extends DialogFragment {
                 int radioId = radioGroupPriority.getCheckedRadioButtonId();
 
                 RadioButton radioButton = (RadioButton) view.findViewById(radioId);
-                Log.i(TAG, radioButton.getText().toString());
-                Log.i(TAG, getResources().getString(R.string.priority_high));
+//                Log.i(TAG, radioButton.getText().toString());
+//                Log.i(TAG, getResources().getString(R.string.priority_high));
                 if (radioButton.getText().toString().equals(getResources().getString(R.string.priority_high)))
                     taskBeingEdited.getSimpleTask().setPriorityHigh(true);
                 else
@@ -180,6 +173,8 @@ public class TaskEditorFragment extends DialogFragment {
 
             }
         });
+
+        cancelButton = (Button) view.findViewById(R.id.cancelButton);
         cancelButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -190,6 +185,8 @@ public class TaskEditorFragment extends DialogFragment {
             }
         });
 
+
+        deleteButton = (Button) view.findViewById(R.id.deleteButton);
         deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

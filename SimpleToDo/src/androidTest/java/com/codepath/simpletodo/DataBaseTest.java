@@ -11,6 +11,8 @@ import java.util.List;
 /**
  * Created by madhavathavale on 9/15/16.
  */
+
+// Test for DB.
 public class DataBaseTest extends AndroidTestCase {
     private TaskDBManager db;
     public RenamingDelegatingContext context;

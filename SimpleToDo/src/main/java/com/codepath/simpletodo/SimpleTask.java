@@ -12,6 +12,10 @@ import java.util.Locale;
 /**
  * Created by madhavathavale on 9/13/16.
  */
+
+////////////////////////////
+//Class for task attributes
+///////////////////////////
 public class SimpleTask implements Serializable{
 
     public static final String ITEM_SEP = System.getProperty("line.separator");

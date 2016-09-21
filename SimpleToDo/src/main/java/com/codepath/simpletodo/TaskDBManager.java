@@ -7,13 +7,13 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import android.app.Activity;
+
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.os.Bundle;
+
 import android.util.Log;
 
 public class TaskDBManager extends SQLiteOpenHelper {
@@ -39,7 +39,7 @@ public class TaskDBManager extends SQLiteOpenHelper {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
-    // Creating Tables
+
     @Override
     public void onCreate(SQLiteDatabase db) {
         String CREATE_TASKS_TABLE = "CREATE TABLE " + TABLE_TASKS + "("
@@ -48,7 +48,7 @@ public class TaskDBManager extends SQLiteOpenHelper {
         db.execSQL(CREATE_TASKS_TABLE);
     }
 
-    // Upgrading database
+
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         // Drop older table if existed
@@ -59,6 +59,7 @@ public class TaskDBManager extends SQLiteOpenHelper {
     }
 
 
+//Need error handling
 
 
     void addTask(SimpleTask task) {
@@ -73,7 +74,7 @@ public class TaskDBManager extends SQLiteOpenHelper {
 
         db.insert(TABLE_TASKS, null, values);
         Log.i(TAG,task.toString());
-        db.close(); // Closing database connection
+        db.close();
     }
 
 
@@ -97,7 +98,6 @@ public class TaskDBManager extends SQLiteOpenHelper {
 
     public List<SimpleTask> getAllTasks() {
         List<SimpleTask> taskList = new ArrayList<>();
-        // Select All Query
         String selectQuery = "SELECT  * FROM " + TABLE_TASKS;
 
         SQLiteDatabase db = this.getWritableDatabase();
@@ -132,7 +132,7 @@ public class TaskDBManager extends SQLiteOpenHelper {
         values.put(KEY_STATUS, Boolean.toString(task.isStatusComplete()));
         values.put(KEY_DATE, SimpleTask.FORMAT.format(task.getDate()));
 
-        // updating row
+
         return db.update(TABLE_TASKS, values, KEY_ID + " = ?",
             new String[] { String.valueOf(task.getId()) });
     }
@@ -143,18 +143,6 @@ public class TaskDBManager extends SQLiteOpenHelper {
         db.delete(TABLE_TASKS, KEY_ID + " = ?",
             new String[] { String.valueOf(task.getId()) });
         db.close();
-    }
-
-
-
-    public int getTaskCount() {
-        String countQuery = "SELECT  * FROM " + TABLE_TASKS;
-        SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.rawQuery(countQuery, null);
-        cursor.close();
-
-        // return count
-        return cursor.getCount();
     }
 
 }

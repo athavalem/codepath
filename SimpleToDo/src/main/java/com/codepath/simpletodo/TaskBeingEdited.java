@@ -5,6 +5,11 @@ import java.io.Serializable;
 /**
  * Created by madhavathavale on 9/11/16.
  */
+
+/////////////////
+// Helper class for communication between fragment and main activity
+//////////////
+
 public class TaskBeingEdited implements Serializable{
 
 
