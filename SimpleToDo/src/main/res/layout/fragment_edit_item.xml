@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:text="@string/title"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="@dimen/activity_margin_ten"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:textStyle="bold">
@@ -25,8 +25,8 @@
         android:layout_height="wrap_content"
         android:text="@string/task"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="10dp"
+        android:layout_marginTop="@dimen/activity_margin_ten"
+        android:layout_marginLeft="@dimen/activity_margin_ten"
         android:layout_below="@id/TitleLabel"
         android:textStyle="bold"
         >
@@ -38,9 +38,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/taskLabel"
-        android:layout_marginTop="5dp"
-        android:layout_marginLeft="10dp"
-        android:ems="10"
+        android:layout_marginTop="@dimen/activity_margin_five"
+        android:layout_marginLeft="@dimen/activity_margin_ten"
         android:hint="@string/hintTask"
         android:inputType="textShortMessage"
         >
@@ -55,8 +54,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@id/editTitle"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="10dp"
+        android:layout_marginTop="@dimen/activity_margin_ten"
+        android:layout_marginLeft="@dimen/activity_margin_ten"
         android:text="@string/complete"
         android:textStyle="bold"
         android:textAppearance="?android:attr/textAppearanceMedium" />
@@ -69,7 +68,7 @@
         android:layout_below="@id/editTitle"
         android:layout_toRightOf="@id/txtStatus"
         android:layout_alignBaseline="@id/txtStatus"
-        android:layout_marginLeft="10dp"/>
+        android:layout_marginLeft="@dimen/activity_margin_ten"/>
 
     <LinearLayout
 
@@ -78,8 +77,8 @@
         android:orientation="horizontal"
         android:layout_below="@id/chkStatus"
         android:id="@+id/llPriority"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp">
+        android:layout_marginLeft="@dimen/activity_margin_ten"
+        android:layout_marginTop="@dimen/activity_margin_ten">
 
     <TextView
 
@@ -98,7 +97,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:text="@string/priority"
-        android:layout_marginLeft="20dp"
+        android:layout_marginLeft="@dimen/activity_margin_twenty"
 
        >
 
@@ -121,7 +120,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/priority_high"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="@dimen/activity_margin_ten"
             android:textStyle="bold"
             android:textAppearance="?android:attr/textAppearanceMedium"
            />
@@ -136,8 +135,8 @@
         android:orientation="horizontal"
         android:layout_below="@id/llPriority"
         android:id="@+id/llDate"
-        android:layout_marginTop="5dp"
-        android:layout_marginLeft="10dp">
+        android:layout_marginTop="@dimen/activity_margin_five"
+        android:layout_marginLeft="@dimen/activity_margin_ten">
 
     <TextView
 
@@ -154,7 +153,7 @@
         android:id="@+id/txtDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
+        android:layout_marginLeft="@dimen/activity_margin_ten"
         android:textStyle="bold"
         android:textAppearance="?android:attr/textAppearanceMedium"
          />
@@ -164,7 +163,7 @@
         android:id="@+id/dateButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
+        android:layout_marginLeft="@dimen/activity_margin_ten"
         android:textStyle="bold"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="@string/dateButton" />
@@ -178,9 +177,9 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="@dimen/activity_margin_ten"
+        android:layout_marginTop="@dimen/activity_margin_fifteen"
+        android:layout_marginBottom="@dimen/activity_margin_ten"
         android:textStyle="bold"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="@string/cancel" />
@@ -192,9 +191,9 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="@dimen/activity_margin_ten"
+        android:layout_marginTop="@dimen/activity_margin_fifteen"
+        android:layout_marginBottom="@dimen/activity_margin_ten"
         android:textStyle="bold"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="@string/delete" />
@@ -205,10 +204,10 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:layout_marginBottom="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginBottom="@dimen/activity_margin_ten"
+        android:layout_marginRight="@dimen/activity_margin_ten"
+        android:layout_marginLeft="@dimen/activity_margin_ten"
+        android:layout_marginTop="@dimen/activity_margin_fifteen"
         android:textStyle="bold"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="@string/save" />

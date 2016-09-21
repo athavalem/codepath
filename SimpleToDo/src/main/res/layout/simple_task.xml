@@ -14,8 +14,8 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:text="Title : "
-        android:layout_marginTop="5dp"
-        android:layout_marginLeft="5dp"
+        android:layout_marginTop="@dimen/activity_margin_five"
+        android:layout_marginLeft="@dimen/activity_margin_five"
         android:textAppearance="?android:attr/textAppearanceLarge"/>
 
 
@@ -27,8 +27,8 @@
         android:layout_alignParentTop="true"
         android:layout_toRightOf="@id/lblTitle"
         android:layout_alignBaseline="@id/lblTitle"
-        android:layout_marginTop="5dp"
-        android:layout_marginLeft="5dp"
+        android:layout_marginTop="@dimen/activity_margin_five"
+        android:layout_marginLeft="@dimen/activity_margin_five"
         android:textStyle="bold"
         android:textAppearance="?android:attr/textAppearanceMedium"
         />
@@ -40,8 +40,8 @@
         android:layout_alignParentLeft="true"
         android:layout_below="@id/lblTitle"
         android:text="Complete? "
-        android:layout_marginTop="5dp"
-        android:layout_marginLeft="5dp"
+        android:layout_marginTop="@dimen/activity_margin_five"
+        android:layout_marginLeft="@dimen/activity_margin_five"
         android:textAppearance="?android:attr/textAppearanceLarge"/>
 
     <CheckBox
@@ -49,8 +49,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/lblTitle"
-        android:layout_marginTop="5dp"
-        android:layout_marginLeft="5dp"
+        android:layout_marginTop="@dimen/activity_margin_five"
+        android:layout_marginLeft="@dimen/activity_margin_five"
         android:layout_toRightOf="@id/lblStatus"/>
 
     <TextView
@@ -61,8 +61,8 @@
         android:layout_below="@id/lblTitle"
         android:layout_toRightOf="@id/chkStatus"
         android:text="High Priority? "
-        android:layout_marginTop="5dp"
-        android:layout_marginLeft="5dp"
+        android:layout_marginTop="@dimen/activity_margin_five"
+        android:layout_marginLeft="@dimen/activity_margin_five"
         android:textAppearance="?android:attr/textAppearanceLarge"
        />
 
@@ -71,8 +71,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/lblTitle"
-        android:layout_marginTop="5dp"
-        android:layout_marginLeft="5dp"
+        android:layout_marginTop="@dimen/activity_margin_five"
+        android:layout_marginLeft="@dimen/activity_margin_five"
         android:layout_toRightOf="@id/lblPriority"/>
 
     <TextView
@@ -83,8 +83,8 @@
         android:layout_below="@id/lblStatus"
         android:layout_alignParentLeft="true"
         android:layout_toRightOf="@id/chkPriority"
-        android:layout_marginTop="5dp"
-        android:layout_marginLeft="5dp"
+        android:layout_marginTop="@dimen/activity_margin_five"
+        android:layout_marginLeft="@dimen/activity_margin_five"
         android:textAppearance="?android:attr/textAppearanceLarge"/>
 
     <TextView
@@ -92,8 +92,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@id/lblDate"
-        android:layout_marginTop="5dp"
-        android:layout_marginLeft="5dp"
+        android:layout_marginTop="@dimen/activity_margin_five"
+        android:layout_marginLeft="@dimen/activity_margin_five"
         android:layout_toRightOf="@id/lblDate"
         android:textStyle="bold"
         android:textAppearance="?android:attr/textAppearanceMedium">
