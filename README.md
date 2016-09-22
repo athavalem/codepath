@@ -24,11 +24,9 @@ Completed user stories
 Note : After downloading project from git Android Studio sometimes displays a message about 2 SimpleToDo.iml 
 <br/>
 [2 modules can not be loaded. You can remove them from project.] 
-
 <br/>
-
 Select and remove both these files. They are not needed. 
 
 <br>
 
-[walkthru](simpletodo.gif)
+[GIF Walkthru](simpletodo.gif)
